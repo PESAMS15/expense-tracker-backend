@@ -2,6 +2,7 @@ const express = require("express");
  require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const Router = require("./routers");
 
 const app = express();
@@ -9,6 +10,8 @@ const app = express();
 const dbURI = process.env.DATABASE ;
 console.log(dbURI);
 const port = process.env.PORT || 5000;
+
+app.use(cors({origin: "*"}))
 
 app.use(express.static("public"));
 app.use(express.json());

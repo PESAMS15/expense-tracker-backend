@@ -23,7 +23,7 @@ export default function Login(props) {
       passowrd: "",
     });
 
-    const res = await fetch("/user/login", {
+    const res = await fetch("https://expesne-tracker.onrender.com/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
