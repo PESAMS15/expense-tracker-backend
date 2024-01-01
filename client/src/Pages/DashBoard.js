@@ -33,7 +33,7 @@ export default function DashBoard(props) {
     const checklogin = async () => {
       const res = await fetch("https://expesne-tracker.onrender.com/user/auth", {
         headers: {
-          token: localStorage.getItem("token"),
+          Authorization: localStorage.getItem("token"),
         }
       });
       const data = await res.json();
