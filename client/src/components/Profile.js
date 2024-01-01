@@ -7,7 +7,7 @@ export default function Profile({ setViewProfile }) {
   const [user, setUser] = useState([]);
   useEffect(() => {
     async function handleGetUser() {
-      const res = await fetch("https://expesne-tracker.onrender.com/user/getProfile", {
+      const res = await fetch("https://expesne-tracker.onrender.com/user/auth", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

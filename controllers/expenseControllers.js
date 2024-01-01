@@ -10,7 +10,7 @@ module.exports.add_expense = async (req, res) => {
   if (!category) {
     category = "General";
   }
-  const id = req.user._id;
+  const id = req.body._id;
   if (date && amount && desc && category) {
     try {
       if (typeof date != "object") {
@@ -36,7 +36,7 @@ module.exports.add_expense = async (req, res) => {
 };
 
 module.exports.view_expense = async (req, res) => {
-  const id = req.user._id;
+  const id = req.body._id;
   try {
     const expenses = await Expense.find({ id }).sort({ date: -1 });
 
@@ -47,7 +47,7 @@ module.exports.view_expense = async (req, res) => {
 };
 
 module.exports.get_today_expense = async (req, res) => {
-  const id = req.user._id;
+  const id = req.body._id;
   try {
     let expenses = await Expense.find({ id }).sort({ date: -1 });
     let filterData = [];
@@ -67,7 +67,7 @@ module.exports.get_today_expense = async (req, res) => {
 };
 
 module.exports.view_expense_by_catergory = async (req, res) => {
-  const id = req.user._id;
+  const id = req.body._id;
   const category = req.params.category;
   try {
     const expenses = await Expense.find({ id, category }).sort({ date: -1 });
@@ -78,7 +78,7 @@ module.exports.view_expense_by_catergory = async (req, res) => {
 };
 
 module.exports.set_budget = async (req, res) => {
-  const id = req.user._id;
+  const id = req.body._id;
   const { budget } = req.body;
 
   if (budget) {
@@ -99,7 +99,7 @@ module.exports.set_budget = async (req, res) => {
 };
 
 module.exports.view_expenses_in_range = async (req, res) => {
-  const id = req.user._id;
+  const id = req.body._id;
   let { startdate, enddate } = req.body;
   startdate = new Date(startdate);
   enddate = new Date(enddate);
@@ -115,7 +115,7 @@ module.exports.view_expenses_in_range = async (req, res) => {
 };
 
 module.exports.get_budget = async (req, res) => {
-  const id = req.user._id;
+  const id = req.body._id;
   try {
     const user = await User.findById(id);
     res.status(200).json({ budget: user.budget });
