@@ -18,6 +18,7 @@ export default function Analysis(props) {
       startDate.getMonth(),
       startDate.getDate() + 1
     ).toDateString(),
+    _id: localStorage.getItem("_id"),
   });
   const [expenseData, SetExpenseData] = useState({
     datasets: [

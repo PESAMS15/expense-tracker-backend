@@ -112,7 +112,13 @@ export default function Home(props) {
       }
     };
     async function handleGetBudget() {
-      const res = await fetch("https://expesne-tracker.onrender.com/expense/getBudget");
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/getBudget", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({_id: localStorage.getItem("_id")}),
+      });
       let data = await res.json();
       setTotalBudget(data.budget.$numberDecimal);
       let remaining = data.budget.$numberDecimal - TotalSpent;

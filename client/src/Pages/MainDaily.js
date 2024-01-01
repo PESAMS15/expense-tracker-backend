@@ -13,7 +13,15 @@ export default function MainDaily(props) {
   let [expense, setExpense] = useState([]);
   useEffect(() => {
     async function HandleDailyExpense() {
-      const res = await fetch("https://expesne-tracker.onrender.com/expense/getdailyexpense");
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/getdailyexpense", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _id: localStorage.getItem("_id"),
+        }),
+      });
       const data = await res.json();
 
       if (data.errors) {

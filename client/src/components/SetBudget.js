@@ -4,6 +4,7 @@ import ReactLoading from "react-loading";
 export default function SetBudget(props) {
   const [monthlyBudget, setMonthlyBudget] = useState({
     budget: "",
+    _id: localStorage.getItem("_id"),
   });
   const [error, setError] = useState({
     budget: "",

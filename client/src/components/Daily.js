@@ -31,7 +31,15 @@ export default function Daily() {
 
   useEffect(() => {
     async function fetchDailyData() {
-      const res = await fetch("https://expesne-tracker.onrender.com/expense/getdailyexpense");
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/getdailyexpense",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _id: localStorage.getItem("_id"),
+        }),
+      });
       const data = await res.json();
       console.log(data);
       if (data.error) {

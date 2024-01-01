@@ -13,6 +13,7 @@ const AddExpense = (props) => {
     desc: "",
     date: "",
     category: "General",
+    _id: localStorage.getItem("_id"),
   });
 
   const [error, setError] = useState({

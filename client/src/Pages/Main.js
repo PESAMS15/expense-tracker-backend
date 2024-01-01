@@ -12,7 +12,15 @@ export default function Main(props) {
   const [expense, setExpense] = useState([]);
   useEffect(() => {
     async function HandleAllExpense() {
-      const res = await fetch("https://expesne-tracker.onrender.com/expense/viewexpense");
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/viewexpense", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _id: localStorage.getItem("_id"),
+        }),
+      });
       const data = await res.json();
       if (data.errors) {
         navigate("/");
