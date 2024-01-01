@@ -31,6 +31,8 @@ export default function Login(props) {
       body: JSON.stringify(user),
     });
     const data = await res.json();
+    console.log(data)
+    localStorage.setItem("token", data.token);
     if (data.errors) {
       setError(data.errors);
       console.log(error);

@@ -7,7 +7,13 @@ export default function Profile({ setViewProfile }) {
   const [user, setUser] = useState([]);
   useEffect(() => {
     async function handleGetUser() {
-      const res = await fetch("https://expesne-tracker.onrender.com/user/getProfile");
+      const res = await fetch("https://expesne-tracker.onrender.com/user/getProfile", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${localStorage.getItem("token")}`,
+        },
+      });
       const data = await res.json();
       console.log(data);
       if (data.errors) {

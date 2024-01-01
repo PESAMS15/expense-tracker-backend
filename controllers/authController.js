@@ -92,7 +92,7 @@ module.exports.auth = async (req, res) => {
       } else {
         const user = await User.findById(decodedToken.id);
         if (user) {
-          res.status(200).json({ msg: "User Login Found" });
+          res.status(200).json({ user, msg: "User Login Found" });
         }
       }
     });
@@ -102,5 +102,6 @@ module.exports.auth = async (req, res) => {
 };
 
 module.exports.getuser = async (req, res) => {
-  res.status(200).json({ user: req.user });
+
+  res.status(200).json({ user });
 };
