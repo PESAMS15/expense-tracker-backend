@@ -81,6 +81,7 @@ module.exports.logout = (req, res) => {
 };
 
 module.exports.auth = async (req, res) => {
+  console.log(req.headers)
   let token = req.headers.authorization;
   console.log("tok", token);
   if (token) {
