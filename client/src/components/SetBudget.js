@@ -16,7 +16,7 @@ export default function SetBudget(props) {
       budget: "",
     });
 
-    const res = await fetch("/expense/setbudget", {
+    const res = await fetch("https://expesne-tracker.onrender.com/expense/setbudget", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

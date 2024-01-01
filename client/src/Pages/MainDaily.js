@@ -13,7 +13,7 @@ export default function MainDaily(props) {
   let [expense, setExpense] = useState([]);
   useEffect(() => {
     async function HandleDailyExpense() {
-      const res = await fetch("/expense/getdailyexpense");
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/getdailyexpense");
       const data = await res.json();
 
       if (data.errors) {

@@ -29,7 +29,7 @@ export default function DailySpendAnalysis() {
 
   useEffect(() => {
     async function fetchDailyData() {
-      const res = await fetch("/expense/getdailyexpense");
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/getdailyexpense");
       const data = await res.json();
       if (data.error) {
         navigate("/");

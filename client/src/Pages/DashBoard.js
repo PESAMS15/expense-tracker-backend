@@ -24,19 +24,24 @@ export default function DashBoard(props) {
   }
 
   const handleLogOut = async () => {
-    const res = await fetch("/user/logout");
+    const res = await fetch("https://expesne-tracker.onrender.com/user/logout");
     props.setIsLoggedIn(false);
     navigate("/");
   };
 
   useEffect(() => {
     const checklogin = async () => {
-      const res = await fetch("/user/auth");
+      const res = await fetch("https://expesne-tracker.onrender.com/user/auth", {
+        headers: {
+          token: localStorage.getItem("token"),
+        }
+      });
       const data = await res.json();
 
       if (data.msg == "User Login Found") {
         props.setIsLoggedIn(true);
       } else {
+        alert("Please Login to Continue")
         navigate("/");
         props.setIsLoggedIn(false);
       }

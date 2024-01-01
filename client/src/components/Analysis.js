@@ -105,7 +105,7 @@ export default function Analysis(props) {
 
   useEffect(() => {
     const HandleInRange = async () => {
-      const res = await fetch("/expense/viewexpenseinrange", {
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/viewexpenseinrange", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

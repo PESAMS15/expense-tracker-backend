@@ -9,14 +9,14 @@ export default function LandingPage(props) {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    const res = await fetch("user/logout");
+    const res = await fetch("https://expesne-tracker.onrender.com/user/logout");
     props.setIsLoggedIn(false);
     navigate("/");
   };
 
   useEffect(() => {
     const checklogin = async () => {
-      const res = await fetch("/user/auth");
+      const res = await fetch("https://expesne-tracker.onrender.com/user/auth");
       const data = await res.json();
       console.log(data);
       if (data.msg === "Login to Proceed") {

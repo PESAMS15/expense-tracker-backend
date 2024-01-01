@@ -25,7 +25,7 @@ const AddExpense = (props) => {
     setError({
       msg: "",
     });
-    const res = await fetch("/expense/addexpense", {
+    const res = await fetch("https://expesne-tracker.onrender.com/expense/addexpense", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

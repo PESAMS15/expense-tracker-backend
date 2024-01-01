@@ -65,7 +65,7 @@ export default function Home(props) {
     };
     console.log(date);
     const getHomeChartdata = async (e) => {
-      const res = await fetch("/expense/viewexpenseinrange", {
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/viewexpenseinrange", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -112,7 +112,7 @@ export default function Home(props) {
       }
     };
     async function handleGetBudget() {
-      const res = await fetch("/expense/getBudget");
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/getBudget");
       let data = await res.json();
       setTotalBudget(data.budget.$numberDecimal);
       let remaining = data.budget.$numberDecimal - TotalSpent;

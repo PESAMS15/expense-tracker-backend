@@ -29,7 +29,7 @@ export default function Signup(props) {
       confirmPassword: "",
     });
 
-    const res = await fetch("/user/signup", {
+    const res = await fetch("https://expesne-tracker.onrender.com/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

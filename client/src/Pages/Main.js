@@ -12,7 +12,7 @@ export default function Main(props) {
   const [expense, setExpense] = useState([]);
   useEffect(() => {
     async function HandleAllExpense() {
-      const res = await fetch("/expense/viewexpense");
+      const res = await fetch("https://expesne-tracker.onrender.com/expense/viewexpense");
       const data = await res.json();
       if (data.errors) {
         navigate("/");

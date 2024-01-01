@@ -81,7 +81,8 @@ module.exports.logout = (req, res) => {
 };
 
 module.exports.auth = async (req, res) => {
-  let token = req.cookies.jwt;
+  let token = req.headers.token;
+  console.log(token);
   if (token) {
     jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
       if (err) {

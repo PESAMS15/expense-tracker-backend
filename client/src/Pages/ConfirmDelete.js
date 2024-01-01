@@ -7,7 +7,7 @@ export default function ConfirmDelete(props) {
   const [isLoading, setIsLoading] = useState(false);
   const HandleDelete = async () => {
     setIsLoading(true);
-    const res = await fetch(`/expense/${props.deleteId}/deleteExpense`);
+    const res = await fetch(`https://expesne-tracker.onrender.com/expense/${props.deleteId}/deleteExpense`);
     const data = await res.json();
     console.log(data);
     if (data.error) {
