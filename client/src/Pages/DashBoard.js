@@ -37,6 +37,7 @@ export default function DashBoard(props) {
         }
       });
       const data = await res.json();
+      console.log(data)
 
       if (data.msg == "User Login Found") {
         props.setIsLoggedIn(true);

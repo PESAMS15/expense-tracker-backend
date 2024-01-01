@@ -86,6 +86,7 @@ module.exports.auth = async (req, res) => {
   console.log("tok", token);
   if (token) {
     jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
+      console.log(err);
       if (err) {
         res.status(200).json({ msg: "Login to Proceed" });
       } else {
