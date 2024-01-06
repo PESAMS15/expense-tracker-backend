@@ -81,6 +81,7 @@ export default function Home(props) {
       } else {
         console.log(data)
         const Segregated = Segregator(data.expense);
+        console.log(data.expense)
         TotalSpent = Segregated[1];
         console.log(TotalSpent)
 

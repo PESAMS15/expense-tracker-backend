@@ -10,7 +10,7 @@ const expenseSchema = new mongoose.Schema(
       type: Date,
     },
     amount: {
-      type: Number,
+      type: mongoose.Types.Decimal128,
       required: [true, "Please Enter Amount for Expense"],
     },
     amountPaid:{
