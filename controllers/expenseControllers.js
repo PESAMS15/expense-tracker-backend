@@ -47,7 +47,7 @@ module.exports.view_expense = async (req, res) => {
 };
 
 module.exports.view_one_expense = async (req, res) => {
-  const id = req.body.id;
+  const id = req.params.id;
   try {
     const expense = await Expense.findById(id);
     res.status(200).json({ expense });
