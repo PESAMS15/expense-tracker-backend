@@ -26,6 +26,7 @@ export default function DashBoard(props) {
   const handleLogOut = async () => {
     const res = await fetch("https://expesne-tracker.onrender.com/user/logout");
     props.setIsLoggedIn(false);
+    localStorage.clear();
     navigate("/");
   };
 

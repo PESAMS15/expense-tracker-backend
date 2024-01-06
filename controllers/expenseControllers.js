@@ -124,6 +124,20 @@ module.exports.get_budget = async (req, res) => {
   }
 };
 
+module.exports.pay_to_expense = async (req, res) => {
+  const { amountPaid, id } = req.body;
+  try {
+    const expense = await Expense.findByIdAndUpdate(
+      id,
+      { amountPaid },
+      { upsert: true }
+    );
+    res.status(200).json({ expense });
+  } catch (err) {
+    res.status(404).json({ errors: { msg: "Something went wrong." } });
+  }
+}
+
 module.exports.delete_expense = async (req, res) => {
   const id = req.params.id;
   try {

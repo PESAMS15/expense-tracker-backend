@@ -32,14 +32,15 @@ export default function Login(props) {
     });
     const data = await res.json();
     console.log(data)
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("_id", data._id);
+    
     if (data.errors) {
       setError(data.errors);
       console.log(error);
       setIsLoading(false);
     } else {
       setIsLoading(false);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("_id", data.user._id);
       props.closeModalLogin();
       navigate("/dashboard");
     }

@@ -8,6 +8,7 @@ const {
   delete_expense,
   get_budget,
   get_today_expense,
+  pay_to_expense,
 } = require("../controllers/expenseControllers");
 const { requireAuth } = require("../middleware/authMiddleware");
 const expenseRouter = Router();
@@ -22,6 +23,8 @@ expenseRouter.get(
   
   view_expense_by_catergory
 );
+
+expenseRouter.post("/paytoexpense",  pay_to_expense);
 expenseRouter.post("/viewexpenseinrange",  view_expenses_in_range);
 expenseRouter.get("/:id/deleteExpense",  delete_expense);
 

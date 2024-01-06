@@ -43,6 +43,8 @@ export default function Signup(props) {
       setIsLoading(false);
     } else {
       setIsLoading(false);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("_id", data.user._id);
       props.closeModalSignup();
       navigate("/dashboard");
     }

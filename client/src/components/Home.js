@@ -62,6 +62,7 @@ export default function Home(props) {
         startDate.getMonth(),
         startDate.getDate() + 1
       ).toDateString(),
+      _id: localStorage.getItem("_id")
     };
     console.log(date);
     const getHomeChartdata = async (e) => {
@@ -78,8 +79,11 @@ export default function Home(props) {
       if (data.errors) {
         navigate("/");
       } else {
+        console.log(data)
         const Segregated = Segregator(data.expense);
         TotalSpent = Segregated[1];
+        console.log(TotalSpent)
+
         SetExpenseData({
           datasets: [
             {
@@ -150,7 +154,7 @@ export default function Home(props) {
       <div className="lg:m-auto lg:ml-auto ml-4  lg:w-3/4 p-5 mx-8 rounded-md  lg:mt-8 bg-rp-black text-slate-300">
         <div className="flex justify-between text-md">
           <p>
-            spend in {moment().format("MMM 1")}-{moment().format("MMM D")}
+           money spent from {moment().format("MMM 1")}-{moment().format("MMM D")}
           </p>
           <p>{Math.floor((TotalSpent / totalBudget) * 100)}% budget used</p>
         </div>

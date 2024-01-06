@@ -11,6 +11,7 @@ export default function LandingPage(props) {
   const handleLogout = async () => {
     const res = await fetch("https://expesne-tracker.onrender.com/user/logout");
     props.setIsLoggedIn(false);
+    localStorage.clear();
     navigate("/");
   };
 
@@ -98,9 +99,9 @@ export default function LandingPage(props) {
         <h1 className="text-rp-yellow lg:text-4xl font-semibold text-xl">
           Expense Tracker
         </h1>
-        <div className="grid grid-cols-3 lg:flex items-center lg:justify-between text-mj-yellow ">
+        <div className="grid grid-cols-3  lg:flex items-center lg:justify-between text-mj-yellow ">
           <Link to="/about-us">
-            <div className="lg:px-4 px-1 py-4 cursor-pointer hover:bg-jp-black hover:rounded-md mx-2  ">
+            <div className="lg:px-4 px-1 hidden py-4 cursor-pointer hover:bg-jp-black hover:rounded-md mx-2  ">
               <h1>About Us</h1>
             </div>
           </Link>
