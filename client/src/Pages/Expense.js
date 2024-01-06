@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 const  Expense =  () => {
   const { id } = useParams()
   const fetchExpense = async () => {
-    const res = await fetch(`http://localhost:3000/expense/${id}`)
+    const res = await fetch(`https://expesne-tracker.onrender.com/expense/viewoneexpense/${id}`)
     const data = await res.json()
     console.log(data)
   }
@@ -12,7 +12,7 @@ const  Expense =  () => {
     fetchExpense()
   }, [])
   return (
-    <div>Expense</div>
+    <div>Expense {id}</div>
   )
 }
 
