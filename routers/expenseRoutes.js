@@ -9,12 +9,14 @@ const {
   get_budget,
   get_today_expense,
   pay_to_expense,
+  view_one_expense,
 } = require("../controllers/expenseControllers");
 const { requireAuth } = require("../middleware/authMiddleware");
 const expenseRouter = Router();
 
 expenseRouter.post("/addexpense",  add_expense);
 expenseRouter.post("/viewexpense",  view_expense);
+expenseRouter.get("viewoneexpense/:id",  view_one_expense);
 expenseRouter.post("/getdailyexpense",  get_today_expense);
 expenseRouter.post("/setbudget",  set_budget);
 expenseRouter.post("/getbudget",  get_budget);

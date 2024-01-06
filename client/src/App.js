@@ -16,6 +16,7 @@ import Developers from "./Pages/Aboutus";
 import ConfirmDelete from "./Pages/ConfirmDelete";
 import { Scrollbars } from "react-custom-scrollbars";
 import Contact from "./Pages/contactUs";
+import Expense from "./Pages/Expense";
 
 Modal.setAppElement("#root");
 
@@ -174,6 +175,13 @@ function App() {
                 />
               }
             ></Route>
+            <Route
+              path="expense/:id"
+              element= {<Expense />}
+
+            
+            
+            />
           </Route>
 
           <Route path="/about-us" element={<Developers />} />

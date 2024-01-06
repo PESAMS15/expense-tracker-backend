@@ -9,9 +9,14 @@ export default function List(props) {
   const HandleSetUp = () => {
     props.setDeleteId(props.expense._id);
     props.openModalConfirm();
+
+    
   };
+  const navi = () => {
+    navigate(`expense/${props.expense._id}`);
+  } 
   return (
-    <div className="m-2 mt-4 lg:mt-0 mx-4 lg:mx-0 p-2  lg:grid lg:grid-cols-7  items-start text-slate-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[90%] w-[65%] flex">
+    <div onClick={navi} className="m-2 mt-4 lg:mt-0 mx-4 lg:mx-0 p-2 cursor-pointer lg:grid lg:grid-cols-7  items-start text-slate-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[90%] w-[65%] flex">
       <div
         onClick={HandleSetUp}
         className="text-jp-yellow absolute top-0 cursor-pointer"

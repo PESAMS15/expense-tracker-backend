@@ -124,8 +124,8 @@ export default function Home(props) {
         body: JSON.stringify({_id: localStorage.getItem("_id")}),
       });
       let data = await res.json();
-      setTotalBudget(data.budget.$numberDecimal);
-      let remaining = data.budget.$numberDecimal - TotalSpent;
+      setTotalBudget(data.budget);
+      let remaining = data.budget - TotalSpent;
 
       if (remaining < 0) {
         remaining = 0;
