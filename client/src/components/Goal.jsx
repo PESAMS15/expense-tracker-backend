@@ -9,6 +9,15 @@ const Goal = () => {
 
      const handleAddGoal  =  async()=>{
         setIsLoading(true)
+        const res = await fetch("https://expesne-tracker.onrender.com/goal/addgoal", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ goal: goalm, description: desc }),
+        });
+        const data = await res.json();
+        console.log(data);
      }
 
   return (
