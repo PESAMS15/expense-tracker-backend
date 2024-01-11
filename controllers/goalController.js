@@ -2,6 +2,7 @@
 const Goal = require("../models/goal");
 
 module.exports.add_goal = async (req, res) => {
+    console.log(req.body);
     let { amount, description } = req.body;
     const id = req.body._id;
     if (amount && description) {

@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import ReactLoading from "react-loading";
+import { useNavigate } from 'react-router-dom';
 
 
-const Goal = () => {
+const Goal = (props) => {
+    const navigate = useNavigate();
     const [goalm, setgoalm] = useState("")
+    const [Error, setError] = useState("")
     const [desc, setdesc] = useState("")
      const [isLoading, setIsLoading] = useState(false);
 
@@ -14,10 +17,19 @@ const Goal = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ goal: goalm, description: desc }),
+          body: JSON.stringify({  _id: localStorage.getItem("_id"), amount: goalm, description: desc, }),
         });
         const data = await res.json();
-        console.log(data);
+        if (data.errors) {
+            setIsLoading(false);
+            setError(data.errors);
+            console.log(data.errors);
+          } else {
+            setIsLoading(false);
+            props.closeModalGoal();
+            navigate("/dashboard");
+            window.location.reload();
+          }
      }
 
   return (
