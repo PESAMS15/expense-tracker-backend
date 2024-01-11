@@ -5,5 +5,6 @@ const router = Router();
 
 router.use("/user", userRouter);
 router.use("/expense", expenseRouter);
+router.use("/goal", goalRouter);
 
 module.exports = router;

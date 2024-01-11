@@ -3,6 +3,8 @@ import Money from "../assets/money.png";
 
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
+import DoughnutChart from "./Load";
+import DoughnutChart2 from "./LOADER";
 
 export default function List(props) {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ export default function List(props) {
     navigate(`expense/${props.expense._id}`);
   } 
   return (
-    <div onClick={navi} className="m-2 mt-4 lg:mt-0 mx-4 lg:mx-0 p-2 cursor-pointer lg:grid lg:grid-cols-7  items-start text-slate-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[90%] w-[65%] flex">
+    <div onClick={navi} className="m-2 mt-4 relative lg:mt-0 mx-4 lg:mx-0 p-2 cursor-pointer lg:grid lg:grid-cols-7  items-start text-slate-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[90%] w-[65%] flex">
       <div
         onClick={HandleSetUp}
         className="text-jp-yellow absolute top-0 cursor-pointer"
@@ -33,6 +35,11 @@ export default function List(props) {
             clipRule="evenodd"
           />
         </svg>
+       
+
+      </div>
+      <div className="absolute right-1 top-10">
+      <DoughnutChart2 currentValue={props.expense.amountPaid} totalValue={props.expense.amount.$numberDecimal} />
       </div>
       <div className="bg-jp-black rounded-full lg:w-2/3 w-fit  h-12 relative top-3 p-2 mb-8 lg:mb-3">
         <img src={Money} className="h-7 w-7 mt-1"></img>
@@ -66,9 +73,9 @@ export default function List(props) {
       </div>
       <div className="lg:col-span-2 lg:ml-6 ml-3 lg:mt-0 mt-2 ">
         <p className="text-sm font-bold">Your share</p>
-        <div className="flex font-bold text-jp-white mt-5 lg:mt-2 lg:mx-0 mx-4 ">
-          <p>₦</p>
-          <h1 className="ml- text-2xl">{props.expense.amount}</h1>
+        <div className="flex items-start whitespace-nowrap font-bold text-jp-white mt-5 lg:mt-2 lg:mx-0 mx-4 ">
+          {/* <p>₦</p> */}
+          <h1 className="ml- text-2xl">₦{props.expense.amount.$numberDecimal}</h1>
         </div>
       </div>
     </div>

@@ -62,8 +62,8 @@ export default function LandingPage(props) {
                 : "text-mj-yellow grid grid-rows-3 w-fit ml-24 text-center text-xl "
             }
           >
-            <Link to="/about-us">
-              <div className="lg:px-4 px-1 py-4 cursor-pointer hover:bg-jp-black hover:rounded-md mx-2 ">
+            <Link className="hidden" to="/about-us">
+              <div className="lg:px-4 px-1 py-4 hidden cursor-pointer hover:bg-jp-black hover:rounded-md mx-2 ">
                 <h1>About Us</h1>
               </div>
             </Link>

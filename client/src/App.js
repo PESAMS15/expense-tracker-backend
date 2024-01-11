@@ -17,11 +17,15 @@ import ConfirmDelete from "./Pages/ConfirmDelete";
 import { Scrollbars } from "react-custom-scrollbars";
 import Contact from "./Pages/contactUs";
 import Expense from "./Pages/Expense";
+import Home from "./components/Home";
+import Goals from "./Pages/Goals";
+import Goal from "./components/Goal";
 
 Modal.setAppElement("#root");
 
 function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpenGoal, setIsOpenGoal] = useState(false);
   const [modalIsOpenLogin, setIsOpenLogin] = useState(false);
   const [modalIsOpenExpense, setIsOpenExpense] = useState(false);
   const [modalIsOpenBudget, setIsOpenBudget] = useState(false);
@@ -37,6 +41,10 @@ function App() {
 
   function closeModalContact() {
     setIsOpenContact(false);
+  }
+
+  function openModalGoal (){
+    setIsOpenGoal(true)
   }
 
   function openModalConfirm() {
@@ -57,8 +65,13 @@ function App() {
     setIsOpenBudget(true);
   }
 
+  
+
   function closeModalBudget() {
     setIsOpenBudget(false);
+  }
+  function closeModalGoal() {
+    setIsOpenGoal(false);
   }
 
   function openModalSignup() {
@@ -182,6 +195,14 @@ function App() {
             
             
             />
+            <Route
+
+             path="goals"
+            
+
+              element={<Goals 
+                openModalGoal={openModalGoal}
+              />} />
           </Route>
 
           <Route path="/about-us" element={<Developers />} />
@@ -351,6 +372,27 @@ function App() {
           </svg>
         </button>
         <SetBudget closeModalBudget={closeModalBudget} />
+      </Modal>
+      <Modal
+        isOpen={modalIsOpenGoal}
+        onRequestClose={closeModalGoal}
+        style={customStyles}
+      >
+        <button onClick={closeModalGoal}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+        <Goal closeModalBudget={closeModalGoal} />
       </Modal>
 
       <Modal
