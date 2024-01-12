@@ -139,8 +139,8 @@ module.exports.pay_to_expense = async (req, res) => {
   try {
     const expense = await Expense.findByIdAndUpdate(
       id,
-      { amountPaid },
-      { upsert: true }
+      { $inc: amountPaid },
+    
     );
     res.status(200).json({ expense });
   } catch (err) {
