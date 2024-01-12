@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 const Goa = () => {
     let id = localStorage.getItem("goalid")
+    const [click, setclick] = useState(false)
+    const [amountPaid, setamountPaid] = useState(0)
     const [goal, setgoal] = useState(null)
     const view_one_goal = async () => {
         try {
@@ -30,7 +32,7 @@ const Goa = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ amountPaid: amoundPaid, id }),
+        body: JSON.stringify({ amount: amountPaid, _id:id }),
       });
       const data = await res.json();
       alert("payment successful")
@@ -60,10 +62,18 @@ const Goa = () => {
       {goal && goal.description}
       </div>
       </div>
+      <div className="flex justify-between">
+        <div className="text-xl">
+          Amount Saved:
+        </div>
+        <div className="text-xl">
+          ₦{goal && goal.amountSaved}
+        </div>
+        </div>
       <div>
-      <button onClick={HandleClick} className={`p-2 block my-3 rounded px-3 bg-yellow-600 ${data.expense.amountPaid >= data.expense.amount.$numberDecimal? "hidden": "block"}`}>Add Amount</button>
+      <button onClick={HandleClick} className={`p-2 block my-3 rounded px-3 bg-yellow-600 ${goal &&  goal.amountSaved >= goal.amount? "hidden": "block"}`}>Add Amount</button>
     <div className="flex gap-3">
-      <input type="text" onChange={e=> setamoundPaid(e.target.value)} className={`bg-white border border-gray-300 rounded py-2 px-4  ${click? "block": "hidden"} w-full appearance-none leading-normal`} />
+      <input type="text" onChange={e=> setamountPaid(e.target.value)} className={`bg-white border border-gray-300 rounded text-black py-2 px-4  ${click? "block": "hidden"} w-full appearance-none leading-normal`} />
       <button onClick={pay} className={`p-2 block h-full my-3 rounded px-3 bg-yellow-600 ${click? "block": "hidden"}`}>Pay</button>
       </div>
       </div>

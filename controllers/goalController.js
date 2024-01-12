@@ -59,9 +59,8 @@ module.exports.addGoalAmount = async (req, res) => {
     const id = req.body._id;
     const amount = req.body.amount;
     try {
-        const goal = await Goal.findById(id);
-        goal.amountSaved = goal.amountSaved  + amount;
-        await goal.save();
+        const updateAmountSaved = await Goal.findByIdAndUpdate(id, {$inc: {amountSaved: amount}});
+       
         res.status(200).json({ goal });
     } catch (err) {
         res.status(404).json({ errors: { msg: "Something went wrong." } });
