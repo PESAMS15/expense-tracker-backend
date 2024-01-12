@@ -60,7 +60,7 @@ module.exports.addGoalAmount = async (req, res) => {
     const amount = req.body.amount;
     try {
         const goal = await Goal.findById(id);
-        goal.amount = goal.amount + amount;
+        goal.amountSaved = goal.amountSaved  + amount;
         await goal.save();
         res.status(200).json({ goal });
     } catch (err) {

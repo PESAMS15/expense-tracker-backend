@@ -20,17 +20,20 @@ import Expense from "./Pages/Expense";
 import Home from "./components/Home";
 import Goals from "./Pages/Goals";
 import Goal from "./components/Goal";
+import Goa from "./components/Goa";
 
 Modal.setAppElement("#root");
 
 function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalIsOpenGoal, setIsOpenGoal] = useState(false);
+  const [modalIsOpenGoa, setIsOpenGoa] = useState(false);
   const [modalIsOpenLogin, setIsOpenLogin] = useState(false);
   const [modalIsOpenExpense, setIsOpenExpense] = useState(false);
   const [modalIsOpenBudget, setIsOpenBudget] = useState(false);
   const [modalisOpenConfirm, setIsOpenConfirm] = useState(false);
   const [modalIsOpenContact, setIsOpenContact] = useState(false);
+  const [id, setid] = useState("")
   const [isLoggedIn, setIsLoggedIn] = useState();
 
   const [deleteId, setDeleteId] = useState();
@@ -41,10 +44,15 @@ function App() {
 
   function closeModalContact() {
     setIsOpenContact(false);
+    
   }
 
   function openModalGoal (){
     setIsOpenGoal(true)
+  }
+  function openModalGoa (){
+    setid(localStorage.getItem("goalid"))
+    setIsOpenGoa(true)
   }
 
   function openModalConfirm() {
@@ -72,6 +80,9 @@ function App() {
   }
   function closeModalGoal() {
     setIsOpenGoal(false);
+  }
+  function closeModalGoa() {
+    setIsOpenGoa(false);
   }
 
   function openModalSignup() {
@@ -202,6 +213,8 @@ function App() {
 
               element={<Goals 
                 openModalGoal={openModalGoal}
+                openModalGoa={openModalGoa}
+                closeModalGoal={closeModalGoal}
               />} />
           </Route>
 
@@ -392,7 +405,28 @@ function App() {
             />
           </svg>
         </button>
-        <Goal closeModalBudget={closeModalGoal} />
+        <Goal closeModalGoal={closeModalGoal} />
+      </Modal>
+      <Modal
+        isOpen={modalIsOpenGoa}
+        onRequestClose={closeModalGoa}
+        style={customStyles}
+      >
+        <button onClick={closeModalGoa}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+        <Goa  closeModalGoa={closeModalGoa} />
       </Modal>
 
       <Modal

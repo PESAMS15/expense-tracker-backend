@@ -1,19 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Goals = (props) => {
+  const [goals, setgoals] = useState(null)
+
+   async function view_goals ()  {
+        const res = await fetch(`https://expesne-tracker.onrender.com/goal/viewgoal `,{
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({  _id: localStorage.getItem("_id") }),
+          });
+          const data = await res.json();
+          // console.log(data)
+          setgoals(data.goals)
+        
+
+    }
+    // console.log(goals)
+
+    const go = (id)=>{
+      console.log(id)
+      localStorage.setItem("goalid",id )
+      props.openModalGoa()
+    }
+
+    view_goals()
+
+
   return (
-    <div className='lg:col-span-4 md:p-7 h-screen bg-jp-black -mt-1 lg:mt-0 text-slate-300'>
-        <div className='p-5 mx-auto  bg-rp-black relative'>
+    <div className='lg:col-span-4 md:p-7 h-screen bg-jp-black relative -mt-1 lg:mt-0 text-slate-300'>
+        <div className='p-5 mx-auto relative   bg-rp-black '>
             <h1 className='md:text-2xl text-xl text-center text-slate-300'>Goals</h1>
-            <div className="m-2 mt-4 lg:mt-0 md:mx-4 lg:mx-0 md:p-2 relative cursor-pointer lg:grid lg:grid-cols-7  items-start text-slate-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[90%] w-[100%] flex justify-between">
-            <div className="text-jp-yellow absolute  top-0 right-5 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-5 relative lg:left-[26rem] left-[18.5rem] lg:top-10 top-11 hover:scale-110" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
-                </svg>
+            <div className="m-2 mt-4 lg:mt-0 md:mx-4 lg:mx-0 md:p-2  mx-auto  items-start text-slate-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[90%] w-[100%]  justify-between">
+           
+            <div onClick={props.openModalGoal} className="bg-jp-black cursor-pointer rounded-full absolute  right-3   w-fit  h-12  top-3 p-3 mb-8 lg:mb-3 ">
+                <button >Add Goal</button>
             </div>
-            <div className="bg-jp-black rounded-full lg:w-2/3 w-fit  h-12 relative top-3 p-3 mb-8 lg:mb-3 ">
-                <button onClick={props.openModalGoal}>Goal</button>
+            {/* <div className='text-center'>Goals</div> */}
+            {goals && goals.map((goal, index) => (
+            <div   onClick={(e)=> go(goal._id)}  key={index} className="bg-jp-black flex cursor-pointer justify-between  mx-auto rounded-xl lg:w-[90%] w-[100%] h-20  p-3 mb-8 lg:mb-3 ">
+                <div className="text-jp-yellow text-xl">
+                  <div className='text-white font-medium text-xl '>
+                    Goal
+                  </div>
+                  {goal.description}
+                </div>
+                <div className="text-jp-yellow text-xl">
+                  <div className='text-white font-medium text-xl '>Amount</div>
+                  ₦{goal.amount
+                  }</div>
             </div>
+            ))}
         </div>
         </div>
 

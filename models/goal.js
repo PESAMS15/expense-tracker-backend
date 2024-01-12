@@ -10,6 +10,10 @@ const goalSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    amountSaved: {
+        type: Number,
+        default: 0
+    },
     description:{
         type: String,
         required: true

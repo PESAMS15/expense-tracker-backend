@@ -26,7 +26,8 @@ const Goal = (props) => {
             console.log(data.errors);
           } else {
             setIsLoading(false);
-            props.closeModalGoal();
+            // props.closeModalGoal();
+            // alert("Goal Added")
             navigate("/dashboard");
             window.location.reload();
           }
