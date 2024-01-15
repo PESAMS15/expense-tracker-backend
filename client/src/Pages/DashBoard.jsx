@@ -22,6 +22,9 @@ export default function DashBoard(props) {
   function selectLink3() {
     setActive("3");
   }
+  function selectLink4() {
+    setActive("4");
+  }
 
   const handleLogOut = async () => {
     const res = await fetch("https://expesne-tracker.onrender.com/user/logout");
@@ -136,7 +139,30 @@ export default function DashBoard(props) {
                   Daily
                 </li>
               </Link>
+              <Link to="/dashboard/goals">
+                <li
+                  onClick={selectLink4}
+                  className={
+                    active === "3"
+                      ? "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md bg-jp-black rounded-md"
+                      : "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md transition delay-100"
+                  }
+                >
+                  <span className="mr-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-7 w-7"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                       <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1 15h2v2h-2v-2zm0-14h2v10h-2V3z" />
+                    </svg>
+                  </span>
+                  Goals
+                </li>
+              </Link>
             </ul>
+                  
             <div className="lg:hidden flex">
               <button
                 className="ml-32 bg-rp-yellow rounded-lg "
