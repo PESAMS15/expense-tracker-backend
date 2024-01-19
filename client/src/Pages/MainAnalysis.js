@@ -3,7 +3,6 @@ import Analysis from "../components/Analysis";
 import List from "../components/List";
 import Profile from "../components/Profile";
 import ProfileExpand from "../components/ProfileExpand";
-import { Scrollbars } from "react-custom-scrollbars";
 
 export default function MainAnalysis(props) {
   const [viewProfile, setViewProfile] = useState("hidden");
@@ -14,11 +13,9 @@ export default function MainAnalysis(props) {
       <>
         <div className="col-span-2 bg-jp-black">
           {clicked ? (
-            <Scrollbars
-              style={{ width: 540, height: 640 }}
-              className="lg:mt-8 -mt-1 lg:ml-24 ml-3"
-            >
-              {listExpense
+         
+          <div>
+                {listExpense
                 ? listExpense.map((item) => {
                     return (
                       <List
@@ -29,7 +26,8 @@ export default function MainAnalysis(props) {
                     );
                   })
                 : null}
-            </Scrollbars>
+          </div>
+           
           ) : null}
         </div>
         <div className="col-span-2 bg-jp-black mt-10 lg:mt-0">
@@ -58,11 +56,8 @@ export default function MainAnalysis(props) {
         </div>
         <div className="col-span-2 bg-jp-black">
           {clicked ? (
-            <Scrollbars
-              style={{ width: 540, height: 640 }}
-              className="lg:mt-8 -mt-1 lg:ml-24 ml-1"
-            >
-              {listExpense
+            <div>
+                {listExpense
                 ? listExpense.map((item) => {
                     return (
                       <List
@@ -73,7 +68,8 @@ export default function MainAnalysis(props) {
                     );
                   })
                 : null}
-            </Scrollbars>
+            </div>
+            
           ) : null}
         </div>
 

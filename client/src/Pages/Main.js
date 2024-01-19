@@ -4,7 +4,6 @@ import Home from "../components/Home";
 import Profile from "../components/Profile";
 import List from "../components/List";
 import ProfileExpand from "../components/ProfileExpand";
-import { Scrollbars } from "react-custom-scrollbars";
 
 export default function Main(props) {
   const navigate = useNavigate();
@@ -38,10 +37,7 @@ export default function Main(props) {
       </div>
       <div className="col-span-2 bg-jp-black ">
         <Profile setViewProfile={setViewProfile} />
-        <Scrollbars
-          style={{ width: 540, height: 640 }}
-          className="lg:mt-8 -mt-1"
-        >
+       
           {expense.reverse().map((item) => {
             return (
               <List
@@ -51,7 +47,7 @@ export default function Main(props) {
               />
             );
           })}
-        </Scrollbars>
+        
       </div>
       <div
         className={`hidden lg:absolute top-20 right-6 w-fit h-fit ${viewProfile}`}

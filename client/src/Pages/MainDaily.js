@@ -3,7 +3,6 @@ import Daily from "../components/Daily";
 import List from "../components/List";
 import Profile from "../components/Profile";
 import ProfileExpand from "../components/ProfileExpand";
-import { Scrollbars } from "react-custom-scrollbars";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 
@@ -39,10 +38,7 @@ export default function MainDaily(props) {
       </div>
       <div className="col-span-2 bg-jp-black">
         <Profile setViewProfile={setViewProfile} />
-        <Scrollbars
-          style={{ width: 540, height: 640 }}
-          className="lg:mt-8 -mt-1"
-        >
+      
           {expense.map((item) => {
             return (
               <List
@@ -52,7 +48,7 @@ export default function MainDaily(props) {
               />
             );
           })}
-        </Scrollbars>
+        
       </div>
       <div className={`absolute top-20 right-6 w-fit h-fit ${viewProfile}`}>
         <ProfileExpand />

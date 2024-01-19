@@ -24,7 +24,7 @@ const Goals = (props) => {
       localStorage.setItem("goalid",id )
       props.openModalGoa()
     }
-
+  
     view_goals()
 
 

@@ -33,6 +33,8 @@ const Goal = (props) => {
           }
      }
 
+     
+
   return (
     <div className='p-6 bg-rp-black text-white w-full rounded-xl font-lexend'>
         <div className="text-center">

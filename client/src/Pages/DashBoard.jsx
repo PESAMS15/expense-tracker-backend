@@ -254,6 +254,28 @@ export default function DashBoard(props) {
                   Daily
                 </li>
               </Link>
+              <Link to="/dashboard/goals">
+                <li
+                  onClick={selectLink4}
+                  className={
+                    active === "4 "
+                    ? "text-rp-yellow flex text-2xl p-2"
+                    : "text-rp-yellow flex text-2xl p-2"             
+                  }
+                >
+                  <span className="mr-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-7 w-7"
+                      viewBox="0 0 20 20" 
+                      fill="currentColor"
+                    >
+                       <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1 15h2v2h-2v-2zm0-14h2v10h-2V3z" />
+                    </svg>
+                  </span>
+                  Goals
+                </li>
+              </Link>
               <div className="ml-6  mt-4 bottom-5 left-16 pb-6 ">
                 <button
                   onClick={handleLogOut}

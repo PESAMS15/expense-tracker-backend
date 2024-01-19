@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DatePicker2 from "./DatePicker2";
 import ReactLoading from "react-loading";
-import { Scrollbars } from "react-custom-scrollbars";
 
 const AddExpense = (props) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +46,7 @@ const AddExpense = (props) => {
   };
 
   return (
-    <Scrollbars style={{ width: 540, height: 500 }} className="mt-8">
+   
       <div className=" grid grid-cols-6 font-lexend ">
         <div className="col-span-4 bg-rp-black p-6 ">
           <div className=" flex mt-4 ">
@@ -128,7 +127,7 @@ const AddExpense = (props) => {
           </div>
         </div>
       </div>
-    </Scrollbars>
+   
   );
 };
 
