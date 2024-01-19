@@ -36,7 +36,7 @@ export default function Main(props) {
         <Home openModalBudget={props.openModalBudget} />
       </div>
       <div className="col-span-2 bg-jp-black ">
-        <Profile setViewProfile={setViewProfile} />
+        {/* <Profile setViewProfile={setViewProfile} /> */}
        
           {expense.reverse().map((item) => {
             return (

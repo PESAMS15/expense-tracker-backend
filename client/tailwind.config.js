@@ -3,19 +3,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "rp-black": "#1E2329",
-        "mj-black": "#2A2F35",
-        "jp-black": "#3B4046",
-        "rp-yellow": "#F5A302",
-        "mj-yellow": "#F4B301",
-        "jp-yellow": "#FED154",
-        "blue-1": "023e8a",
-        "blue-2": "0077b6",
-        "blue-3": "0096c7",
-        "blue-4": "00b4d8",
-        "blue-5": "48cae4",
-        "blue-6": "90e0ef",
-        "blue-7": "ade8f4",
+        "rp-black": "#313233", // Main background color
+        "mj-black": "white",
+        "jp-black": "#1C1E1E",
+        "rp-yellow": "#2063F2", // Golden yellow for fintech
+        "mj-yellow": "#007BFF", // Blue accent color for fintech
+        "jp-yellow": "white",
+        "ho-blue": "rgba(30,91,221,1)", // Dark green for fintech
       },
     },
     fontFamily: {

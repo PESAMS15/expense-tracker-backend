@@ -37,7 +37,7 @@ export default function MainDaily(props) {
         <Daily />
       </div>
       <div className="col-span-2 bg-jp-black">
-        <Profile setViewProfile={setViewProfile} />
+        {/* <Profile setViewProfile={setViewProfile} /> */}
       
           {expense.map((item) => {
             return (

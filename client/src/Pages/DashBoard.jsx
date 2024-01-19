@@ -10,6 +10,8 @@ import Profile from "../components/Profile";
 export default function DashBoard(props) {
   const navigate = useNavigate();
   const [active, setActive] = useState("1");
+  const [viewProfile, setViewProfile] = useState("hidden");
+
 
   const [isMobile, setIsMobile] = useState(true);
 
@@ -56,26 +58,20 @@ export default function DashBoard(props) {
 
   return (
     <div>
-      <div className="lg:grid lg:grid-cols-5 h-screen font-lexend overflow-y-scroll overflow-x-clip">
+      <div className="lg:grid lg:grid-cols-5  h-screen font-lexend overflow-y-scroll overflow-x-clip">
         <div className="col-span-1 p-4 bg-rp-black text-jp-yellow">
           <div className="lg:inline flex">
-            <Link to="/">
-              <ul className="cursor-pointer">
-                <li className="px-2 mt-2 py-1">
-                  <h1 className="lg:text-3xl text-lg font-bold">
-                    Expense Tracker
-                  </h1>
-                </li>
-              </ul>
-            </Link>
+        <Profile setViewProfile={setViewProfile} />
+
+   
             <ul className="lg:flex lg:flex-col mt-10 hidden">
               <Link to="/dashboard">
                 <li
                   onClick={selectLink1}
                   className={
                     active === "1"
-                      ? "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md bg-jp-black rounded-md"
-                      : "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md transition delay-100"
+                      ? "mb-4 flex px-5 py-3 cursor-pointer text-xl hover:bg-ho-blue hover:rounded-md bg-ho-blue rounded-md"
+                      : "mb-4 flex px-5 py-3 cursor-pointer text-xl hover:bg-ho-blue hover:rounded-md transition delay-100"
                   }
                 >
                   <span className="mr-3">
@@ -96,8 +92,8 @@ export default function DashBoard(props) {
                   onClick={selectLink2}
                   className={
                     active === "2"
-                      ? "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md bg-jp-black rounded-md"
-                      : "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md transition delay-100"
+                      ? "mb-4 flex px-5 py-3 cursor-pointer text-xl hover: hover:rounded-md bg-ho-blue rounded-md"
+                      : "mb-4 flex px-5 py-3 cursor-pointer text-xl hover:bg-ho-blue hover:rounded-md transition delay-100"
                   }
                 >
                   <span className="mr-3">
@@ -118,8 +114,8 @@ export default function DashBoard(props) {
                   onClick={selectLink3}
                   className={
                     active === "3"
-                      ? "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md bg-jp-black rounded-md"
-                      : "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md transition delay-100"
+                      ? "mb-4 flex px-5 py-3 cursor-pointer text-xl hover:bg-ho-blue hover:rounded-md bg-ho-blue rounded-md"
+                      : "mb-4 flex px-5 py-3 cursor-pointer text-xl hover:bg-ho-blue hover:rounded-md transition delay-100"
                   }
                 >
                   <span className="mr-3">
@@ -144,8 +140,8 @@ export default function DashBoard(props) {
                   onClick={selectLink4}
                   className={
                     active === "3"
-                      ? "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md bg-jp-black rounded-md"
-                      : "mb-4 flex px-5 py-3 cursor-pointer text-2xl hover:bg-jp-black hover:rounded-md transition delay-100"
+                      ? "mb-4 flex px-5 py-3 cursor-pointer text-xl hover:bg-ho-blue hover:rounded-md bg-ho-blue rounded-md"
+                      : "mb-4 flex px-5 py-3 cursor-pointer text-xl hover:bg-ho-blue hover:rounded-md transition delay-100"
                   }
                 >
                   <span className="mr-3">
@@ -189,8 +185,8 @@ export default function DashBoard(props) {
                   onClick={selectLink1}
                   className={
                     active === "1"
-                      ? "text-rp-yellow flex text-2xl p-2 pt-8"
-                      : "text-rp-yellow  w-fit  flex text-2xl  pt-8"
+                      ? "text-rp-yellow flex text-xl p-2 pt-8"
+                      : "text-rp-yellow  w-fit  flex text-xl  pt-8"
                   }
                 >
                   <span className="mx-4">
@@ -211,8 +207,8 @@ export default function DashBoard(props) {
                   onClick={selectLink2}
                   className={
                     active === "2"
-                      ? "text-rp-yellow flex text-2xl p-2 pt-4"
-                      : "text-rp-yellow flex text-2xl p-2 pt-4"
+                      ? "text-rp-yellow flex text-xl p-2 pt-4"
+                      : "text-rp-yellow flex text-xl p-2 pt-4"
                   }
                 >
                   <span className="mx-4">
@@ -233,8 +229,8 @@ export default function DashBoard(props) {
                   onClick={selectLink3}
                   className={
                     active === "3"
-                      ? "text-rp-yellow flex text-2xl p-2"
-                      : "text-rp-yellow flex text-2xl p-2"
+                      ? "text-rp-yellow flex text-xl p-2"
+                      : "text-rp-yellow flex text-xl p-2"
                   }
                 >
                   <span className="mx-4">
@@ -259,8 +255,8 @@ export default function DashBoard(props) {
                   onClick={selectLink4}
                   className={
                     active === "4 "
-                    ? "text-rp-yellow flex text-2xl p-2"
-                    : "text-rp-yellow flex text-2xl p-2"             
+                    ? "text-rp-yellow flex text-xl p-2"
+                    : "text-rp-yellow flex text-xl p-2"             
                   }
                 >
                   <span className="mr-3">
@@ -307,7 +303,7 @@ export default function DashBoard(props) {
         <div className=" lg:block absolute bottom-14 z-50 right-5 lg:bottom-20 lg:left-16 lg:right-0">
           <button
             onClick={props.openModalExpense}
-            className="bg-mj-yellow px-4 py-3 flex rounded-md font-bold duration-300 ease-out hover:scale-110"
+            className="bg-mj-yellow px-4 py-3 text-white flex rounded-md font-bold duration-300 ease-out hover:scale-110"
           >
             <span>
               <svg
@@ -329,7 +325,7 @@ export default function DashBoard(props) {
         <div className="hidden lg:block lg:absolute bottom-5 left-16">
           <button
             onClick={handleLogOut}
-            className="bg-mj-yellow px-4 py-3 flex rounded-md font-bold duration-300 ease-out hover:scale-110"
+            className="bg-mj-yellow text-white px-4 py-3 flex rounded-md font-bold duration-300 ease-out hover:scale-110"
           >
             <span>
               <svg
@@ -350,7 +346,7 @@ export default function DashBoard(props) {
             Logout
           </button>
         </div>
-        <Outlet></Outlet>
+        <Outlet ></Outlet>
       </div>
     </div>
   );
