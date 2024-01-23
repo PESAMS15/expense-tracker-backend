@@ -94,7 +94,7 @@ module.exports.auth = async (req, res) => {
         if (user) {
           res.status(200).json({ user, msg: "User Login Found" });
         }
-      }
+      } 
     });
   } else {
     res.status(200).json({ msg: "Login to Proceed" });
