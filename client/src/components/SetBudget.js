@@ -38,14 +38,14 @@ export default function SetBudget(props) {
   };
 
   return (
-    <div className="grid grid-cols-5  text-jp-white h-3/4 font-lexend">
+    <div className="grid   text-jp-white h-3/4 font-lexend">
       <div className="col-span-3 bg-rp-black h-fit p-8 py-14 rounded-md">
         <h1 className="font-bold text-xl mt-3">Set Budget</h1>
         <div className="mt-4">
           <label className="w-fit">what's your budget amount</label>
         </div>
 
-        <div className="flex bg-jp-black  w-fit mt-4 p-2 rounded">
+        <div className="flex bg-jp-black   mt-4 p-2 rounded">
           <h1 className="font-bold text-xl">₦</h1>
           <input
             value={monthlyBudget.budget}
@@ -56,12 +56,12 @@ export default function SetBudget(props) {
             }}
             type="number"
             placeholder=""
-            className="setbuget-input bg-jp-black ml-4 outline-none "
+            className="setbuget-input w-full bg-jp-black ml-4 outline-none "
           ></input>
         </div>
         <span className="text-sm text-red-500">{error.msg}</span>
 
-        <div className=" mt-20 border-rp-yellow border-2 w-fit rounded-md">
+        <div className=" mt-20 bg-rp-yellow  text-white w-fit rounded-md">
           {isLoading ? (
             <ReactLoading
               type="bubbles"
@@ -72,7 +72,7 @@ export default function SetBudget(props) {
           ) : (
             <button
               onClick={HandleSetBudget}
-              className="p-2 px-3 rounded-lg font-bold text-rp-yellow"
+              className="p-2 px-3 rounded-lg font-bold text-white"
             >
               Save Buget
             </button>

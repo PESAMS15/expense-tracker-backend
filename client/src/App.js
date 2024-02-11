@@ -111,8 +111,8 @@ function App() {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      backgroundColor: "#1E2329",
-      border: "2px solid #FFFFFF",
+      backgroundColor: "#313233",
+      // border: "2px solid #FFFFFF",
       color: "#FFFFFF",
       width: `${window.innerWidth > 420 ? "40%" : "95vw"} `,
       // width: "40%",
@@ -121,11 +121,10 @@ function App() {
 
   const customStylesContact = {
     overlay: {
-      backgroundColor: "rgba(58, 63, 69, 0.71)",
-    },
+      // backgroundColor: "rgba(58, 63, 69, 0.71)",
+      filter: "blur(10px)"/* Adjust the blur radius as needed */
+         },
     content: {
-      top: "50%",
-      left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
@@ -133,10 +132,27 @@ function App() {
       backgroundColor: "#1E2329",
       border: "2px solid #FFFFFF",
       color: "#FFFFFF",
-      width: "70%",
-      height: "82%",
+      width: "70%", // Default width for all screen sizes
+      height: "82%", // Default height for all screen sizes
+      '@screen sm': {
+        width: "80%", // Adjust width for small screens
+        height: "90%", // Adjust height for small screens
+      },
+      '@screen md': {
+        top: "50%",
+        left: "50%",
+        width: "60%", // Adjust width for medium screens
+        height: "80%", // Adjust height for medium screens
+      },
+      '@screen lg': {
+        top: "50%",
+        left: "50%",
+        width: "50%", // Adjust width for large screens
+        height: "70%", // Adjust height for large screens
+      },
     },
   };
+  
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>

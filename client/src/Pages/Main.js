@@ -35,7 +35,7 @@ export default function Main(props) {
       <div className="lg:col-span-2 bg-jp-black -mt-1 lg:mt-0 ">
         <Home openModalBudget={props.openModalBudget} />
       </div>
-      <div className="col-span-2 bg-jp-black ">
+      <div className="col-span-2  bg-jp-black overflow-y-auto  h-[96vh]">
         {/* <Profile setViewProfile={setViewProfile} /> */}
        
           {expense.reverse().map((item) => {

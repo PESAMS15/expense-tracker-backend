@@ -17,3 +17,37 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
+
+/* Base styles */
+.content {
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: #1e2329;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    width: 70%;
+    height: 82%;
+    
+  }
+  
+  /* Media query for screens larger than 768px */
+  @media (min-width: 768px) {
+    .content {
+      width: 60%; /* Adjust width for larger screens */
+      height: 80%; /* Adjust height for larger screens */
+    }
+  }
+  
+  /* Media query for screens larger than 1024px */
+  @media (min-width: 1024px) {
+    .content {
+      width: 50%; /* Adjust width for larger screens */
+      height: 70%; /* Adjust height for larger screens */
+    }
+  }
+  
+  /* Add more media queries as needed for different screen sizes */
+  

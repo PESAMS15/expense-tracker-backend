@@ -47,15 +47,15 @@ const AddExpense = (props) => {
 
   return (
    
-      <div className=" grid grid-cols-6 font-lexend ">
-        <div className="col-span-4 bg-rp-black p-6 ">
+      <div className="  font-lexend bg-rp-black ">
+        <div className="col-span-4  p-6 ">
           <div className=" flex mt-4 ">
             <h1 className="text-jp-white text-2xl font-bold ">Add Expense</h1>
           </div>
           <div className=" text-jp-white flex mt-4 ">
             <h1 className="text-4xl border-b-2 mt-2">₦</h1>
             <input
-              className="p-3 bg-rp-black text-3xl w-3/4 border-b-2 outline-none "
+              className="p-3  text-3xl  bg-transparent border-b-2 outline-none "
               placeholder="0"
               type="number"
               value={expense.amount}
@@ -71,7 +71,7 @@ const AddExpense = (props) => {
           </span>
           <div>
             <input
-              className="p-3 px-4 rounded-md mt-6  w-3/4 placeholder-rp-yellow bg-jp-black outline-none text-jp-white"
+              className="p-3 px-4 rounded-md mt-6  w-full placeholder-white bg-jp-black outline-none text-jp-white"
               placeholder="what was this expense for ?"
               value={expense.desc}
               onChange={(e) => {
@@ -81,7 +81,7 @@ const AddExpense = (props) => {
               }}
             ></input>
           </div>
-          <div className="">
+          <div className="w-full">
             <DatePicker2 expense={expense} setExpense={setExpense} />
           </div>
           <div>
@@ -89,30 +89,30 @@ const AddExpense = (props) => {
           </div>
           <div className="text-mj-black">
             <select
-              className="bg-jp-black text-white px-3 py-2 my-1 rounded"
+              className="bg-jp-black w-full text-white px-3 py-3 my-1 rounded"
               name="Categories"
               id="categories"
               value={expense.category}
-              onChange={(e) => {
+              onChange={(e) => {  
                 const tempExpense = { ...expense };
                 tempExpense.category = e.target.value;
                 setExpense(tempExpense);
               }}
             >
-              <option value="General">General</option>
+              <option value="General">Housing </option>
               <option value="Food">Food</option>
-              <option value="Fuel">Fuel</option>
-              <option value="Grocery">Grocery</option>
+              <option value="Fuel">Transportation</option>
+              <option value="Grocery">Utilities</option>
               <option value="Shopping">Shopping</option>
-              <option value="Travel">Travel</option>
-              <option value="Fun">Fun</option>
+              <option value="Travel">Saving</option>
+              <option value="Fun">Debt Payments</option>
             </select>
           </div>
-          <div className="border-rp-yellow border-2 rounded-md w-fit px-8 mt-10">
+          <div className="bg-rp-yellow  rounded-md w-fit px-8 mt-10">
             {isLoading ? (
               <ReactLoading
                 type="bubbles"
-                color="#F5A302"
+                color="white"
                 height={50}
                 width={50}
               />
