@@ -8,7 +8,7 @@ module.exports.add_expense = async (req, res) => {
     date = new Date();
   }
   if (!category) {
-    category = "General";
+    category = "Others";
   }
   const id = req.body._id;
   if (date && amount && desc && category) {
@@ -38,7 +38,13 @@ module.exports.add_expense = async (req, res) => {
 module.exports.view_expense = async (req, res) => {
   const id = req.body._id;
   try {
-    const expenses = await Expense.find({ id }).sort({ date: -1 });
+    const currentMonth = moment().month();
+    const currentYear = moment().year();
+
+    // Get the first and last day of the current month
+    const startOfMonth = moment({ year: currentYear, month: currentMonth }).startOf('month');
+    const endOfMonth = moment({ year: currentYear, month: currentMonth }).endOf('month');
+    const expenses = await Expense.find({ id,  createdAt: { $gte: startOfMonth, $lte: endOfMonth } });
 
     res.status(200).json({ expenses });
   } catch (err) {

@@ -11,7 +11,7 @@ const AddExpense = (props) => {
     amount: "",
     desc: "",
     date: "",
-    category: "General",
+    category: "Others",
     _id: localStorage.getItem("_id"),
   });
 
@@ -99,13 +99,13 @@ const AddExpense = (props) => {
                 setExpense(tempExpense);
               }}
             >
-              <option value="General">General</option>
+              <option value="Housing">Housing</option>
               <option value="Food">Food</option>
-              <option value="Fuel">Fuel</option>
-              <option value="Grocery">Grocery</option>
-              <option value="Shopping">Shopping</option>
-              <option value="Travel">Travel</option>
-              <option value="Fun">Fun</option>
+              <option value="Transportation">Transportation</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Saving">Saving</option>
+              <option value="Debt Payments">Debt Payments</option>
+              <option value="Others">Others</option>
             </select>
           </div>
           <div className="border-rp-yellow border-2 rounded-md w-fit px-8 mt-10">

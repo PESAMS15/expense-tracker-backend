@@ -27,7 +27,7 @@ export default function Profile({ setViewProfile }) {
 
   return (
     <div
-      className="lg:flex lg:block hidden justify-end mt-4 items-center mr-10 cursor-pointer w-fit ml-auto hover:scale-110 duration-100 ease-out"
+      className="lg:flex  hidden mx-auto flex-col items-center justify-center  gap-4   cursor-pointer w-fit  hover:scale-110 duration-100 ease-out"
       onMouseEnter={() => {
         setViewProfile("block");
       }}
@@ -35,8 +35,20 @@ export default function Profile({ setViewProfile }) {
         setViewProfile("hidden");
       }}
     >
-      <h1 className="text-white mr-4 text-lg font-semibold">Hi, {user.name}</h1>
-      <img src={avatar} alt="user" className="h-10 bg-mj-black rounded-full" />
+      <div className="">
+              <img
+          src='https://img.freepik.com/3d-models/9TLRH7X0-award-022/award-022-beauty.png?w=300&ga=GA1.1.1517313874.1705651214'
+          width={80}
+          height={80}
+          alt="curator image"
+          className="rounded-full border-[8px] border-"
+        />
+        <div className="text-center">
+          <p className="text-[18px] font-bold capitalize">Hi, {user.name}</p>
+          
+        </div>
+        </div>
+     
     </div>
   );
 }

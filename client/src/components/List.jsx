@@ -18,14 +18,35 @@ export default function List(props) {
     navigate(`expense/${props.expense._id}`);
   } 
   return (
-    <div onClick={navi} className=" mb-4 relative lg:mt-0 mx-4 lg:mx-0 p-2 cursor-pointer lg:grid lg:grid-cols-7  items-start text-slate-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[90%] w-[90%] flex">
-      <div
+    <div  className="m-2 mt-8  mx-4 lg:mx-0 p-2 cursor-pointer lg:w-5/6 lg:grid  items-start text-slate-300 bg-rp-black rounded-xl lg:p-4  ">
+
+      <div className="">
+      {/* <DoughnutChart2 currentValue={props.expense.amountPaid} totalValue={props.expense.amount.$numberDecimal} /> */}
+      </div>
+      <div className="bg-blue-400 rounded-full flex justify-between   py-3 px-4 ">
+        <img src={Money} className="h-7 w-7 " />
+        <h1 className="text-2xl">₦{props.expense.amount.$numberDecimal}</h1>
+      </div>
+
+<div className="flex justify-between items-center ">
+<div className="flex flex-col gap-2 mt-5">
+<div className=" ">
+          <h1 className="font-bold text-xl">{props.expense.desc}</h1>
+        <h1 className="text-2xl">₦{props.expense.amount.$numberDecimal}</h1>
+          
+        </div>
+      <div className="">
+        
+
+      </div>
+</div>
+<div
         onClick={HandleSetUp}
-        className="text-jp-yellow absolute top-0 cursor-pointer"
+        className="text-jp-yellow cursor-pointer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 ml-5 relative lg:left-[26rem] left-[18.5rem] lg:top-10 top-11 hover:scale-110"
+          className="h-6 w-6  hover:scale-110"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -38,46 +59,32 @@ export default function List(props) {
        
 
       </div>
-      <div className="absolute right-1 top-10">
-      <DoughnutChart2 currentValue={props.expense.amountPaid} totalValue={props.expense.amount.$numberDecimal} />
-      </div>
-      <div className="bg-jp-black rounded-full lg:w-2/3 w-fit  h-12 relative top-3 p-2 mb-8 lg:mb-3">
-        <img src={Money} className="h-7 w-7 mt-1"></img>
-      </div>
-      <div className="lg:col-span-4 ml-3 lg:ml-0 mt-2 lg:mt-2 ">
-        <div className="flex h-fit">
-          <div className="flex text-jp-yellow bg-jp-black rounded-xl w-fit px-2 py-1 ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <p className="text-sm  ml-1">
-              {moment(props.expense.date).format("MMM D")}
-            </p>
-          </div>
-          <div className="flex text-jp-yellow bg-jp-black rounded-xl w-fit px-2 py-1 ml-3 ">
-            <p className="text-sm h-fit ml-1">{props.expense.category}</p>
-          </div>
-        </div>
-        <div className="lg:mt-1  mt-2 ">
-          <h1 className="font-bold text-xl">{props.expense.desc}</h1>
-        </div>
-      </div>
-      <div className="lg:col-span-2 lg:ml-6 ml-3 lg:mt-0 mt-2 ">
-        <p className="text-sm font-bold">Your share</p>
-        <div className="flex items-start whitespace-nowrap font-bold text-jp-white mt-5 lg:mt-2 lg:mx-0 mx-4 ">
-          {/* <p>₦</p> */}
-          <h1 className="ml- text-2xl">₦{props.expense.amount.$numberDecimal}</h1>
-        </div>
-      </div>
+</div>
     </div>
   );
 }
+
+{/* <div className=" ">
+<div className="flex h-fit">
+  <div className="flex text-jp-yellow bg-jp-black rounded-xl w-fit px-2 py-1 ">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+        clipRule="evenodd"
+      />
+    </svg>
+    <p className="text-sm  ">
+      {moment(props.expense.date).format("MMM D")}
+    </p>
+  </div>
+  <div className="flex text-jp-yellow bg-jp-black rounded-xl w-fit px-2 py-1 ml-3 ">
+    <p className="text-sm h-fit ">{props.expense.category}</p>
+  </div>
+</div>
+</div> */}

@@ -14,6 +14,7 @@ import MainSpendAnalysis from "./Pages/MainSpendAnalysis";
 import MainDaily from "./Pages/MainDaily";
 import Developers from "./Pages/Aboutus";
 import ConfirmDelete from "./Pages/ConfirmDelete";
+// import { Scrollbars } from "react-custom-scrollbars";
 import Contact from "./Pages/contactUs";
 import Expense from "./Pages/Expense";
 import Home from "./components/Home";
@@ -138,7 +139,7 @@ function App() {
   };
 
   return (
-      <div>
+    <div style={{ width: "100vw", height: "100vh" }}>
       <div className="font-lexend overflow-x-hidden">
         <Routes>
           <Route
@@ -473,8 +474,7 @@ function App() {
         </button>
         <Contact closeModalContact={closeModalContact} />
       </Modal>
-      </div>
-   
+    </div>
   );
 }
 
