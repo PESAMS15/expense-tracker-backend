@@ -11,7 +11,7 @@ const AddExpense = (props) => {
     amount: "",
     desc: "",
     date: "",
-    category: "General",
+    category: "Others",
     _id: localStorage.getItem("_id"),
   });
 

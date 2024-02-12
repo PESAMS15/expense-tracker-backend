@@ -31,11 +31,11 @@ const Goals = (props) => {
   return (
     <div className='lg:col-span-4 md:p-7 overflow-y-auto h-screen rounded-lg bg-jp-black relative -mt-1 lg:mt-0 text-slate-300'>
         <div className='p-5 mx-auto relative    bg-rp-black '>
-            <h1 className='md:text-2xl font-bold text-xl  text-slate-300'>Goals</h1>
+            <h1 className='md:text-2xl font-bold text-xl    text-center w-full text-slate-300'>Goals</h1>
             <div className="m-2 mt-4 lg:mt-0 md:mx-4 lg:mx-0 md:p-2  mx-auto  items-start text-slate-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[90%] w-[100%]  justify-between">
             <button
             onClick={props.openModalGoal}
-            className="bg-mj-yellow px-4 py-3 fixed  w-fit  right-10 bottom-20 l text-white flex rounded-md font-bold duration-300 ease-out hover:scale-110"
+            className="bg-mj-yellow px-4 py-3 cursor-pointer  fixed    right-14  bottom-28 l text-white flex rounded-md font-bold duration-300 ease-out hover:scale-110"
           >
             <span>
               <svg
@@ -51,12 +51,12 @@ const Goals = (props) => {
                 />
               </svg>
             </span>
-            <span className="">Add Goal</span>
+            <span className=""> Add Goal</span>
           </button>
  
             {/* <div className='text-center'>Goals</div> */}
             {goals && goals.map((goal, index) => (
-            <div   onClick={(e)=> go(goal._id)}  key={index} className="bg-jp-black w-full flex cursor-pointer justify-between  mx-auto rounded-xl lg:w-[90%] w-[100%]  p-3 mb-8 lg:mb-3 ">
+            <div   onClick={(e)=> go(goal._id)}  key={index} className="bg-jp-black  flex cursor-pointer justify-between  mx-auto rounded-xl lg:w-[90%] w-[100%]  p-3 mb-8 lg:mb-3 ">
                 <div className="text-jp-yellow w-full text-xl flex flex-col gap-4">
                
                  <div>
