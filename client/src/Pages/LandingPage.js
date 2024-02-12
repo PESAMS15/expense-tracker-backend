@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Vector from "../assets/Vector.svg";
 import Menu from "../assets/mobile_bar.png";
 import Close from "../assets/close.png";
+import Anaimation from "../assets/Personal finance-amico.svg";
 
 export default function LandingPage(props) {
   const navigate = useNavigate();
@@ -182,7 +183,7 @@ export default function LandingPage(props) {
           )}
         </div>
         <div className="my-auto mt-20 w-full">
-          <img src={Vector} alt="join now" />
+          <img src={Anaimation} alt="join now" className="w-[40vw]" />
         </div>
       </div>
     </div>
