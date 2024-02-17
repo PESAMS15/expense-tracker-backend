@@ -17,7 +17,13 @@ const goalSchema = new mongoose.Schema({
     description:{
         type: String,
         required: true
-    }
+    },
+    goalStatus: {
+        type: String,
+        enum: ["Not Achieved", "Achieved"],
+        default: "Not Achieved"
+    },
+
 })
 
 const Goal = mongoose.model("goal", goalSchema);

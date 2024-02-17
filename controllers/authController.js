@@ -74,11 +74,7 @@ module.exports.signup = async (req, res) => {
 module.exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const user = await User.findOne({email, password});
-    if(!user){
-      throw Error("incorrect email or password")
-
-    }
+    const user = await User.login(email, password);
     const token = createTokens(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(200).json({ user, token });
