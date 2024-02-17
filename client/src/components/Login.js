@@ -68,7 +68,7 @@ export default function Login(props) {
               setUser(tempUser);
             }}
             placeholder="Enter Email"
-            className="p-2 m-2 inline-block outline-none  col-span-8 bg-jp-black rounded-sm placeholder-rp-yellow"
+            className="p-2 m-2 inline-block outline-none  col-span-8 bg-jp-black rounded-sm placeholder-white"
           />
           <span className="text-sm text-red-500 col-start-5 col-span-8">
             {error.email}
@@ -92,7 +92,7 @@ export default function Login(props) {
             }}
             placeholder="Enter Password"
             name="password"
-            className="p-2 m-2 inline-block outline-none  col-span-8 bg-jp-black rounded-sm placeholder-rp-yellow"
+            className="p-2 m-2 inline-block outline-none  col-span-8 bg-jp-black rounded-sm placeholder-white"
           ></input>
           <span className="text-sm text-red-500 col-start-5 col-span-8">
             {error.password}
@@ -102,20 +102,20 @@ export default function Login(props) {
           {isLoading ? (
             <ReactLoading
               type="bubbles"
-              color="#F5A302"
+              color="#FFFFFF"
               height={50}
               width={50}
             />
           ) : (
             <button
               onClick={handleLogin}
-              className="font-bold py-3 px-6 rounded-xl border-2 border-rp-yellow text-rp-yellow hover:border-rp-black hover:text-rp-black hover:bg-rp-yellow hover:scale-110 transition delay-150 duration-200"
+              className="font-bold py-3 px-6 rounded-md  border-2 border-rp-yellow text-white hover:border-rp-black hover:text-rp-black hover:bg-rp-yellow hover:scale-110 transition delay-150 duration-200"
             >
               Login
             </button>
           )}
         </div>
-        <span className="flex justify-center py-2">
+        <span className="flex text-sm py-3 md:justify-center py-2">
           <span className="pr-1">Don't have an account , </span>
           <span
             className="text-rp-yellow cursor-pointer"

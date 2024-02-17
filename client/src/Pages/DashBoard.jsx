@@ -161,7 +161,7 @@ export default function DashBoard(props) {
                   
             <div className="lg:hidden flex">
               <button
-                className="ml-32 bg-rp-yellow rounded-lg "
+                className=" bg-white rounded-lg "
                 onClick={() => setIsMobile(!isMobile)}
               >
                 {isMobile ? (
@@ -177,16 +177,16 @@ export default function DashBoard(props) {
           onClick={() => setIsMobile(true)}
           className={isMobile ? "hidden bg-mj-black" : "inline bg-mj-black"}
         >
-          <div className=" bg-rp-black ">
-            <ul className="">
+          <div className=" bg-white flex justify-start  ">
+            <ul className=" flex flex-col items-center justify-start">
               <Profile />
               <Link to="/dashboard">
                 <li
                   onClick={selectLink1}
                   className={
                     active === "1"
-                      ? "text-rp-yellow flex text-xl p-2 pt-8"
-                      : "text-rp-yellow  w-fit  flex text-xl  pt-8"
+                      ? "text-rp-black flex text-xl p-2 pt-8"
+                      : "text-rp-black  w-fit  flex text-xl  pt-8"
                   }
                 >
                   <span className="mx-4">
@@ -207,8 +207,8 @@ export default function DashBoard(props) {
                   onClick={selectLink2}
                   className={
                     active === "2"
-                      ? "text-rp-yellow flex text-xl p-2 pt-4"
-                      : "text-rp-yellow flex text-xl p-2 pt-4"
+                      ? "text-rp-black flex text-xl p-2 pt-4"
+                      : "text-rp-black flex text-xl p-2 pt-4"
                   }
                 >
                   <span className="mx-4">
@@ -229,8 +229,8 @@ export default function DashBoard(props) {
                   onClick={selectLink3}
                   className={
                     active === "3"
-                      ? "text-rp-yellow flex text-xl p-2"
-                      : "text-rp-yellow flex text-xl p-2"
+                      ? "text-rp-black flex text-xl p-2"
+                      : "text-rp-black flex text-xl p-2"
                   }
                 >
                   <span className="mx-4">
@@ -255,8 +255,8 @@ export default function DashBoard(props) {
                   onClick={selectLink4}
                   className={
                     active === "4 "
-                    ? "text-rp-yellow flex text-xl p-2"
-                    : "text-rp-yellow flex text-xl p-2"             
+                    ? "text-rp-black flex text-xl p-2"
+                    : "text-rp-black flex text-xl p-2"             
                   }
                 >
                   <span className="mr-3">
@@ -272,10 +272,10 @@ export default function DashBoard(props) {
                   Goals
                 </li>
               </Link>
-              <div className="ml-6  mt-4 bottom-5 left-16 pb-6 ">
+              <div className="ml-6 w-full  mt-4 bottom-5  pb-6 ">
                 <button
                   onClick={handleLogOut}
-                  className="bg-mj-yellow px-4 py-3 flex rounded-md font-bold duration-300 ease-out hover:scale-110"
+                  className="bg-mj-yellow text-white mt-6 w-full px-4 py-3 flex rounded-md font-bold duration-300 ease-out hover:scale-110"
                 >
                   <span>
                     <svg
@@ -303,12 +303,12 @@ export default function DashBoard(props) {
         <div className=" lg:block absolute bottom-14 z-50 right-5 lg:bottom-20 lg:left-16 lg:right-0">
           <button
             onClick={props.openModalExpense}
-            className="bg-mj-yellow px-4 py-3 text-white flex rounded-md font-bold duration-300 ease-out hover:scale-110"
+            className="bg-mj-yellow px-4 py-3 text-rp-black flex rounded-md font-bold duration-300 ease-out hover:scale-110"
           >
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-6 text-white animate-bounce w-6"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -319,18 +319,18 @@ export default function DashBoard(props) {
                 />
               </svg>
             </span>
-            <span className="hidden lg:block">Add Expense</span>
+            <span className="hidden text-white lg:block">Add Expense</span>
           </button>
         </div>
         <div className="hidden lg:block lg:absolute bottom-5 left-16">
           <button
             onClick={handleLogOut}
-            className="bg-mj-yellow text-white px-4 py-3 flex rounded-md font-bold duration-300 ease-out hover:scale-110"
+            className="bg-mj-yellow text-white px-6 py-3 flex rounded-md font-bold duration-300 ease-out hover:scale-110"
           >
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-6 text-white animate-bounce w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

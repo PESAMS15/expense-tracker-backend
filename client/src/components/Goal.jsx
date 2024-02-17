@@ -55,7 +55,7 @@ const Goal = (props) => {
           </div>
           <div>
             <input
-              className="p-3 px-4 rounded-md mt-6  w-3/4 placeholder-rp-yellow bg-jp-black outline-none text-jp-white"
+              className="p-3 px-4 rounded-md mt-6  w-3/4 placeholder-white bg-jp-black outline-none text-jp-white"
               placeholder="what are you saving up for ?"
               value={desc}
               onChange={(e) => {
@@ -68,7 +68,7 @@ const Goal = (props) => {
             {isLoading ? (
               <ReactLoading
                 type="bubbles"
-                color="#F5A302"
+                color="#FFFFFF"
                 height={50}
                 width={50}
               />

@@ -51,7 +51,7 @@ export default function Signup(props) {
   };
   return (
     <div>
-      <div className="p-6 bg-rp-black text-white rounded-xl font-lexend">
+      <div className=" bg-rp-black text-white rounded-xl font-lexend">
         <h1 className="font-bold text-2xl ">Sign Up</h1>
         <p className="">Please fill this to create an account</p>
         <hr className="my-4 "></hr>
@@ -71,7 +71,7 @@ export default function Signup(props) {
             }}
             type="text"
             placeholder="Enter Name"
-            className="p-2 m-2 inline-block outline-none bg-jp-black col-span-8 rounded-sm placeholder-rp-yellow"
+            className="p-2 m-2 inline-block outline-none bg-jp-black col-span-8 rounded-sm placeholder-white"
           />
           <span className="text-sm text-red-500 col-start-5 col-span-8">
             {error.name}
@@ -93,7 +93,7 @@ export default function Signup(props) {
             }}
             type="text"
             placeholder="Enter Email"
-            className="p-2 m-2 inline-block outline-none  col-span-8 bg-jp-black rounded-sm placeholder-rp-yellow"
+            className="p-2 m-2 inline-block outline-none  col-span-8 bg-jp-black rounded-sm placeholder-white"
           />
           <span className="text-sm text-red-500 col-start-5 col-span-8">
             {error.email}
@@ -117,7 +117,7 @@ export default function Signup(props) {
             type="password"
             placeholder="Enter Password"
             name="password"
-            className="p-2 m-2 inline-block outline-none  col-span-8 bg-jp-black rounded-sm placeholder-rp-yellow"
+            className="p-2 m-2 inline-block outline-none  col-span-8 bg-jp-black rounded-sm placeholder-white"
           ></input>
           <span className="text-sm text-red-500 col-start-5 col-span-8">
             {error.password}
@@ -141,14 +141,14 @@ export default function Signup(props) {
             type="password"
             placeholder="Confirm Password"
             name="Confirm-Password"
-            className="p-2 m-2 inline-block outline-none bg-jp-black col-span-8  rounded-sm placeholder-rp-yellow"
+            className="p-2 m-2 inline-block outline-none bg-jp-black col-span-8  rounded-sm placeholder-white"
           ></input>
           <span className="text-sm text-red-500 col-start-5 col-span-8">
             {error.confirmPassword}
           </span>
         </div>
 
-        <p className="">
+        <p className="pt-4">
           By creating an account you agree to our{" "}
           <a className="text-rp-yellow">terms and conditions</a>
         </p>
@@ -156,21 +156,21 @@ export default function Signup(props) {
           {isLoading ? (
             <ReactLoading
               type="bubbles"
-              color="#F5A302"
+              color="#FFFFFF"
               height={50}
               width={50}
             />
           ) : (
             <button
               onClick={handleSignup}
-              className="font-bold p-3 rounded-xl border-2 border-rp-yellow text-rp-yellow hover:border-rp-black hover:text-rp-black hover:bg-rp-yellow hover:scale-110 transition delay-150 duration-200"
+              className="font-bold p-3 rounded-lg px-4 border-2 border-rp-yellow text-white hover:border-rp-black hover:text-rp-black hover:bg-rp-yellow hover:scale-110 transition delay-150 duration-200"
             >
               Sign Up
             </button>
           )}
         </div>
-        <span className="flex justify-center py-2">
-          <span className="pr-1">Already have an Account, </span>
+        <span className="flex  text-sm pt-6 py-2">
+          <span className="">Already have an Account, </span>
           <span
             className="text-rp-yellow cursor-pointer"
             onClick={() => {
