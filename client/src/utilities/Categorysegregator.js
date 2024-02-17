@@ -3,7 +3,7 @@ module.exports.Segregator = (data) => {
     Housing: 0,
     Transportation: 0,
     Food: 0,
-    Utilites: 0,
+    Utilities: 0,
     Saving: 0,
     Debt_Payments: 0,
     Others: 0,
