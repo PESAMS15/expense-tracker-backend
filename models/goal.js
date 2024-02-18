@@ -20,8 +20,8 @@ const goalSchema = new mongoose.Schema({
     },
     goalStatus: {
         type: String,
-        enum: ["Not Achieved", "Achieved"],
-        default: "Not Achieved"
+        enum: ["Not Completed", "Completed"],
+        default: "Not Completed"
     },
 
 })

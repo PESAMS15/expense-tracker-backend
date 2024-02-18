@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import DoughnutChart from './Dough'
 
 const Goa = () => {
     let id = localStorage.getItem("goalid")
@@ -19,7 +20,9 @@ const Goa = () => {
           console.error(err.message);
         }
     }
-    view_one_goal()
+    useEffect(() => {
+      view_one_goal()
+    })
 
     const HandleClick = () => {
       setclick(!click)
@@ -70,6 +73,9 @@ const Goa = () => {
       <div className="text-xl">
       {goal && goal.goalStatus}
       </div>
+      </div>
+      <div className='w-52 text-center mx-auto'>
+      {goal && < DoughnutChart value1={goal && goal.amountSaved } value2={goal && goal.amount - goal.amount} />}
       </div>
       <div className="flex justify-between">
         <div className="text-xl">
