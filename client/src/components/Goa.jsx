@@ -64,6 +64,15 @@ const Goa = () => {
       </div>
       <div className="flex justify-between">
         <div className="text-xl">
+          Goal Status:
+          
+      </div>
+      <div className="text-xl">
+      {goal && goal.goalStatus}
+      </div>
+      </div>
+      <div className="flex justify-between">
+        <div className="text-xl">
           Amount Saved:
         </div>
         <div className="text-xl">
