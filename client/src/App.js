@@ -21,6 +21,8 @@ import Home from "./components/Home";
 import Goals from "./Pages/Goals";
 import Goal from "./components/Goal";
 import Goa from "./components/Goa";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./Pages/ResetPassword";
 
 Modal.setAppElement("#root");
 
@@ -29,6 +31,7 @@ function App() {
   const [modalIsOpenGoal, setIsOpenGoal] = useState(false);
   const [modalIsOpenGoa, setIsOpenGoa] = useState(false);
   const [modalIsOpenLogin, setIsOpenLogin] = useState(false);
+  const [modalIsOpenPassword, setIsOpenPassword] = useState(false);
   const [modalIsOpenExpense, setIsOpenExpense] = useState(false);
   const [modalIsOpenBudget, setIsOpenBudget] = useState(false);
   const [modalisOpenConfirm, setIsOpenConfirm] = useState(false);
@@ -46,6 +49,7 @@ function App() {
     setIsOpenContact(false);
     
   }
+ 
 
   function openModalGoal (){
     setIsOpenGoal(true)
@@ -98,6 +102,15 @@ function App() {
 
   function closeModalLogin() {
     setIsOpenLogin(false);
+  }
+  
+  function openModalPass() {
+    setIsOpenPassword(true);
+  }
+
+  function closeModalPass() {
+    setIsOpenPassword(false);
+    
   }
 
   const customStyles = {
@@ -170,6 +183,7 @@ function App() {
               ></LandingPage>
             }
           />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route
             path="dashboard"
             element={
@@ -283,6 +297,7 @@ function App() {
           <Login
             closeModalLogin={closeModalLogin}
             openModalSignup={openModalSignup}
+            open={openModalPass}
           />
         </Modal>
 
@@ -307,14 +322,12 @@ function App() {
           </button>
           <AddExpense closeModalExpense={closeModalExpense} />
         </Modal>
-      </div>
-
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModalSignup}
+        <Modal
+        isOpen={modalIsOpenPassword}
+        onRequestClose={closeModalPass}
         style={customStyles}
       >
-        <button onClick={closeModalSignup}>
+        <button onClick={closeModalPass}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -328,8 +341,35 @@ function App() {
             />
           </svg>
         </button>
-        <Signup
-          closeModalSignup={closeModalSignup}
+        <ForgotPassword
+          closeModalPass={closeModalPass}
+          openModalLogin={openModalLogin}
+        />
+      </Modal>
+      </div>
+
+    
+      <Modal
+        isOpen={modalIsOpenPassword}
+        onRequestClose={closeModalPass}
+        style={customStyles}
+      >
+        <button onClick={closeModalPass}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+        <ForgotPassword
+          closeModalPass={closeModalPass}
           openModalLogin={openModalLogin}
         />
       </Modal>
@@ -356,6 +396,7 @@ function App() {
         <Login
           closeModalLogin={closeModalLogin}
           openModalSignup={openModalSignup}
+          open={openModalPass}
         />
       </Modal>
 

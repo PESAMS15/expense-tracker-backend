@@ -149,13 +149,12 @@ module.exports.resetPassword = async (req, res) => {
     }
 
     // Update the user's password and clear the reset token fields
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
-    user.password = hashedPassword
+    user.password = newPassword
     user.resetToken = null;
     user.resetTokenExpires = null;
     await user.save();
 
-    res.json({ message: 'Password reset successfully', user, hashedPassword });
+    res.json({ message: 'Password reset successfully', user });
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
