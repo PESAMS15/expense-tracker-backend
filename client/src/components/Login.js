@@ -128,17 +128,16 @@ export default function Login(props) {
           </span>
         </span>
         <div>
-        <span className="flex text-sm py-3 md:justify-center py-2">
-          <span className="pr-1">Don't have an account , </span>
+        <span className="flex text-sm py-3 md:justify-center text-center py-2">
           <span
-            className="text-rp-yellow cursor-pointer"
+            className="text-rp-yellow block text-center cursor-pointer"
             onClick={() => {
               // props.closeModalLogin();
               props.open();
               props.closeModalLogin();
             }}
           >
-            Forgot password
+            Forgot password?
           </span>
         </span>
         </div>

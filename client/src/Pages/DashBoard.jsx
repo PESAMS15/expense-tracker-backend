@@ -48,8 +48,9 @@ export default function DashBoard(props) {
       if (data.msg == "User Login Found") {
         props.setIsLoggedIn(true);
       } else {
-        alert("Please Login to Continue")
+        // alert("Please Login to Continue")
         navigate("/");
+        window.location.reload();
         props.setIsLoggedIn(false);
       }
     };

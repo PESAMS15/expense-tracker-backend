@@ -1,10 +1,11 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ReactLoading from "react-loading";
 
 import { useState } from 'react'
 
 const ResetPassword = () => {
+    const navigate = useNavigate();
     const {token} = useParams()
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,11 +19,13 @@ const ResetPassword = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ password, resetToken:token }),
+          body: JSON.stringify({ newPassword: password, token }),
         });
     
         const data = await res.json();
         alert(data.message)
+        navigate("/")
+        
         console.log(data.message)
       setIsLoading(false)
 
@@ -61,7 +64,7 @@ const ResetPassword = () => {
           <input
             type="password"
             onChange={(e) => {
-                setpassword(password)
+                setpassword(e.target.value)
             }}
             placeholder="Confirm New Password"
             name="password"
